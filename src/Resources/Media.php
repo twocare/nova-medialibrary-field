@@ -6,7 +6,7 @@ namespace DmitryBubyakin\NovaMedialibraryField\Resources;
 
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use DmitryBubyakin\NovaMedialibraryField\MedialibraryFieldResolver;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Http\Request;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Resource;
 use Spatie\MediaLibrary\MediaCollections\Models\Media as MediaModel;
@@ -26,7 +26,7 @@ class Media extends Resource
         return 'dmitrybubyakin-nova-medialibrary-media';
     }
 
-    public function fields(NovaRequest $request): array
+    public function fields(Request $request): array
     {
         $viaResource = $request->input('viaResource');
         $resource = Nova::resourceInstanceForKey($viaResource);
